@@ -6,6 +6,12 @@
 {{ component( "CeresEigenesBaseline::ItemList.Components.ItemSearch" ) }}
 {{ component( "Ceres::WishList.Components.WishListCount" ) }}
 
+{% block PartialHead %}
+  {% if LayoutContainer.show("Ceres::Template.StyleOverwrite") | trim is empty %}
+    <link data-sass-root="{{ plugin_path('CeresEigenesBaseline') }}" data-sass-original="{{ plugin_path('CeresEigenesBaseline') }}/css/baseline.scss" rel="stylesheet" href="{{ plugin_path('CeresEigenesBaseline') }}/css/baseline.css">
+  {% endif %}
+{% endblock %}
+
 {% set lang = services.sessionStorage.getLang() %}
 {% set numberOfHighlights = config('CeresEigenesBaseline.header.number_of_highlights') %}
 {% set enabledRoutes = config("IO.routing.enabled_routes") | split(', ') %}
@@ -93,8 +99,22 @@
     </div>
 </div>
 
+<!-- ---------------------------------------------------------------------------------- --> 
+
+<!-- lädt die aktuelle Shopsprache -->
+{% set lang = services.sessionStorage.getLang() %}
+
+<!-- lädt die Einstellungen welchen Typen von Kategorien du anzeigen möchtest -->
+{% set showCategoryTypes = config('Ceres.header.show_category_types') %}
+{% if showCategoryTypes | trim is empty %}
+    {% set showCategoryTypes = "all" %}
+{% endif %}
+
+<!-- lädt den Kategoriebaum für die Navigation -->
+{% set categories = services.category.getNavigationTree(showCategoryTypes, lang, 6) %}
+
 <div class="sidebar-categories">
-      <div class="category-title">{{ trans("Ceres::Template.generalCategories") }}</div>
-      {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
-      {% import "Ceres::Category.Macros.CategoryTree" as Tree %}
+    <div class="category-title">{{ trans("Ceres::Template.generalCategories") }}</div>
+    {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
+    {% import "Ceres::Category.Macros.CategoryTree" as Tree %}
 </div>
