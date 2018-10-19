@@ -1,6 +1,6 @@
 <?php
 
-namespace CeresBaseline\Providers;
+namespace CeresEigenesBaseline\Providers;
 
 use CeresEigenesBaseline\Extensions\ShopActionServiceProvider;
 use Ceres\Caching\HomepageCacheSettings;
