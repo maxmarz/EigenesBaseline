@@ -92,3 +92,9 @@
 
     </div>
 </div>
+
+<div class="sidebar-categories">
+      <div class="category-title">{{ trans("Ceres::Template.generalCategories") }}</div>
+      {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
+      {% import "Ceres::Category.Macros.CategoryTree" as Tree %}
+</div>
