@@ -98,23 +98,3 @@
 
     </div>
 </div>
-
-<!-- ---------------------------------------------------------------------------------- --> 
-
-<!-- lädt die aktuelle Shopsprache -->
-{% set lang = services.sessionStorage.getLang() %}
-
-<!-- lädt die Einstellungen welchen Typen von Kategorien du anzeigen möchtest -->
-{% set showCategoryTypes = config('Ceres.header.show_category_types') %}
-{% if showCategoryTypes | trim is empty %}
-    {% set showCategoryTypes = "all" %}
-{% endif %}
-
-<!-- lädt den Kategoriebaum für die Navigation -->
-{% set categories = services.category.getNavigationTree(showCategoryTypes, lang, 6) %}
-
-<div class="sidebar-categories">
-    <div class="category-title">{{ trans("Ceres::Template.generalCategories") }}</div>
-    {{ include('Ceres::PageDesign.Partials.Header.SideNavigation.twig') }}
-    {% import "Ceres::Category.Macros.CategoryTree" as Tree %}
-</div>
