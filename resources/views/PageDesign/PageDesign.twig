@@ -6,7 +6,7 @@
 {{ component( "Ceres::Customer.Components.Login" ) }}
 {{ component( "Ceres::Customer.Components.Registration" ) }}
 {{ component( "Ceres::Basket.Components.AddItemToBasketOverlay" ) }}
-{{ component( "CeresBaseline::ItemList.Components.ItemSearch" ) }}
+{{ component( "CeresEigenesBaseline::ItemList.Components.ItemSearch" ) }}
 {{ component( "Ceres::PageDesign.Components.Popper" ) }}
 
 {% set currencyFormat = config("Ceres.currency.format") %}
@@ -14,8 +14,8 @@
 
 <!DOCTYPE html>
 
-{% set findologicKey        = config("CeresBaseline.default.findologicKey") %}
-{% set findologicIsActive   = config("CeresBaseline.default.findologicIsActive") and findologicKey|length > 0 %}
+{% set findologicKey        = config("CeresEigenesBaseline.default.findologicKey") %}
+{% set findologicIsActive   = config("CeresEigenesBaseline.default.findologicIsActive") and findologicKey|length > 0 %}
 
 {% set shippingCat          = config("Ceres.global.shippingCostsCategoryId") %}
 {% set categories           = services.category.getNavigationTree("item", lang, 6) %}
@@ -90,7 +90,7 @@
         <!--    MOBILE MENU    -->
         <!--       START       -->
         <div class="left-sidebar" data-plentyflow-section="Mobile-Menu" data-plentyflow-onlyhomepage="true">
-            {% include "CeresBaseline::PageDesign.Partials.Header.MobileNavigation" %}
+            {% include "CeresEigenesBaseline::PageDesign.Partials.Header.MobileNavigation" %}
         </div>
         <!--    MOBILE MENU    -->
         <!--        END        -->
