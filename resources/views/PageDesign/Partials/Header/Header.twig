@@ -1,0 +1,94 @@
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{{ component( "CeresEigenesBaseline::Customer.Components.UserLoginHandler" ) }}
+{{ component( "Ceres::PageDesign.Components.MobileNavigation" ) }}
+{{ component( "Ceres::PageDesign.Components.ShippingCountrySelect" ) }}
+{{ component( "CeresEigenesBaseline::ItemList.Components.ItemSearch" ) }}
+{{ component( "Ceres::WishList.Components.WishListCount" ) }}
+
+{% set lang = services.sessionStorage.getLang() %}
+{% set numberOfHighlights = config('CeresEigenesBaseline.header.number_of_highlights') %}
+{% set enabledRoutes = config("IO.routing.enabled_routes") | split(', ') %}
+{% set activeCurrencies = config("Ceres.currency.available_currencies") | split(', ') %}
+{% set enableCurrencySelect = config("Ceres.currency.enable_selection") == "true" and activeCurrencies | length > 0 %}
+{% set currencyFormat = config("Ceres.currency.format") %}
+{% set currencyFormatSelect = config("Ceres.currency.format_selection") %}
+
+<header class="header" data-plentyflow-section="Header">
+    <div class="top-header-bg hidden-md-down" data-plentyflow-section="Top-Header" data-plentyflow-section-element="block" data-plentyflow-onlyhomepage="true">
+        <div class="container-max">
+            <div class="top-header">
+                <div class="row">
+
+                    {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
+                    <div class="col-md-7" data-plentyflow-modul="Advantages">
+                        {% if numberOfHighlights > 0 %}
+                            <ul class="list-highlight">
+                                {% for i in 1..numberOfHighlights %}
+                                    <li class="list-inline-item" data-plentyflow-element="text"><i class="fa fa-check" aria-hidden="true"></i> {{ config('CeresEigenesBaseline.header.shop_highlight_' ~ i) }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-5 text-lg-right">
+                        {# TODO: Javascript Fehler bei Implementierung der Wunschliste #}
+                        {# if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
+                            <div class="control-wish-list text-lg-right seperation-right">
+                                <wish-list-count :init-ids="{{ services.wishList.getItemWishList() | json_encode }}"></wish-list-count>
+                            </div>
+                        {% endif #}
+
+                        <div class="control-user text-lg-right seperation-right">
+
+                            {# TODO: needs to be defined by plenty, start level is MODUL #}
+                            <user-login-handler template="#vue-user-login-handler"
+                                                :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler>
+
+                        </div>
+                        <span class="basket">
+                            <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
+                                {% if config("Ceres.header.basket_values") != "sum" %}
+                                    <span class="badge-right" v-basket-item-quantity="this.$store.state.basket.data.itemQuantity">0</span>
+                                {% endif %}
+
+                                <i v-waiting-animation="this.$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                {% if config("Ceres.header.basket_values") != "quantity" %}
+                                    <span class="badge" v-basket-item-sum="this.$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                {% endif %}
+                            </a>
+                            {#
+                            <ul class="dropdown-menu basketpreviewlist" data-plenty-itemview-template="BasketPreviewList">
+
+                                <basket-preview
+                                        template="#vue-basket-preview"
+                                        :basket-data="{{ services.basket.getBasketForTemplate() | json_encode() }}"
+                                        :basket-items-data="{{ services.basket.getBasketItemsForTemplate('Ceres::Basket.Basket') | json_encode() }}">
+                                </basket-preview>
+							</ul>
+                            #}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "CeresEigenesBaseline::PageDesign.Partials.Header.Navigation" %} {# x #}
+</header>
+
+{% if category.linklist == "Y" %}
+    {% set initialCategory = { id: category.id } %}
+{% else %}
+    {% set initialCategory = category %}
+{% endif %}
+
+<mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
+
+
+<div class="container-max page-header">
+    <div id="searchBox" class="hidden-lg-up cmp collapse {% if services.template.isSearch() %} in {% endif %}">
+
+        {# TODO: needs to be defined by plenty, start level is SECTION #}
+        <item-search template="#vue-item-search"></item-search>
+
+    </div>
+</div>

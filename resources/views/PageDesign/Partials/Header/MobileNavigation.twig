@@ -1,0 +1,50 @@
+{% set companyLogo = config("CeresEigenesBaseline.header.company_logo") %}
+
+<div class="mobile-menu-header" data-plentyflow-modul="Logo">
+    <a href="/">
+        {% if (companyLogo is empty)  %}
+            <img src="{{ plugin_path('CeresEigenesBaseline') }}/images/baseline-logo.png" class="img-fluid"/>
+        {% else %}
+            <img data-plentyflow-element="image, space" src="{{ companyLogo }}" class="img-fluid"/>
+        {% endif %}
+    </a>
+    <a href="#" class="menu-toggle pull-right"><i class="fa fa-close" aria-hidden="true"></i></a>
+</div>
+<nav class="mobile-menu" data-plentyflow-modul="Menu">
+    <ul class="ul-node">
+        {% for category in services.category.getNavigationTree("all", lang, 6) %}
+            {% if category.children is empty %}
+                <li>
+                    <a class="touch-enabled"
+                       href="{{ services.category.getURL( category, lang ) }}"
+                       data-plentyflow-element="text, link">
+                        {{ category.details.first.name }}
+                    </a>
+                </li>
+            {% else %}
+                <li class="li-node">
+                    <a class="touch-enabled" href="#">
+                        {{ category.details.first.name }}
+                    </a>
+                    <ul class="ul-node">
+                        <li class="__back">
+                            <a href="#" data-plentyflow-element="text, link"><i class="fa fa-angle-left" aria-hidden="true"></i> {{ trans("CeresEigenesBaseline::Template.mobileMenuPrev") }}</a>
+                        </li>
+                        <li>
+                            <a href="{{ services.category.getURL( category, lang ) }}" class="touch-enabled" data-plentyflow-element="text, link">
+                                {{ trans("CeresEigenesBaseline::Template.mobileMenuAllItems") }}
+                            </a>
+                        </li>
+                        {% for subcat in category.children %}
+                            <li>
+                                <a class="touch-enabled" href="{{ services.category.getURL( subcat, lang ) }}" data-plentyflow-element="text, link">
+                                    {{ subcat.details.first.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>

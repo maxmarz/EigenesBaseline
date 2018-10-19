@@ -1,0 +1,33 @@
+{
+    "version"           : "2.3.3",
+    "name"              : "CeresEigenesBaseline",
+    "description"       : "Das ist ein EigenesBaseline Theme für Ceres",
+    "author"            : "plentyflow",
+    "license"           : "MIT",
+    "isClosedSource"    : false,
+    "pluginIcon"        : "icon_plugin_xs.png",
+    "price"             : 0.00,
+    "shortDescription"  : {"de": "Das ist ein EigenesBaseline Theme für Ceres","en":"This is a EigenesBaseline Theme for Ceres"},
+    "authorIcon"        : "icon_author_xs.png",
+    "categories"        : ["3518"],
+    "email"             : "info@plentyflow.de",
+    "phone"             : "",
+    "keywords"          : ["plentymarkets", "plugins", "layout", "theme", "ceres", "CeresEigenesBaseline", "ONEDOT", "plentyflow"],
+    "type"              : "theme",
+    "require"           : {"Ceres" : ">=2.15.0", "IO" : ">=2.15.0"},
+    "namespace"         : "CeresEigenesBaseline",
+    "serviceProvider"   : "CeresEigenesBaseline\\Providers\\CeresEigenesBaselineServiceProvider",
+    "dataProviders"     : [
+
+            {
+                "key":"CeresEigenesBaseline\\Containers\\CeresEigenesBaselineStyle",
+                "name":"Stylesheet CeresEigenesBaseline",
+                "description":""
+            },
+            {
+              "key":"CeresEigenesBaseline\\Containers\\CeresEigenesBaselineScript",
+              "name":"Script CeresEigenesBaseline",
+              "description":""
+            }
+    ]
+}

@@ -1,0 +1,61 @@
+{% macro get_nav_bar(categories, currentScopeUrl) %}
+
+    {% for category in categories %}
+
+        {% set currentScopeUrl = "/" ~ category.details[0].nameUrl %}
+
+        {% if category.children %}
+
+            <li class="ddown">
+                <a href="{{ currentScopeUrl }}" v-render-category="{{ category.id }}">{{ category.details[0].name }}</a>
+                <ul data-level="1">
+
+                    {% for child in category.children %}
+
+                        <li>
+                            <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}" v-render-category="{{ child.id }}">{{ child.details[0].name }}</a>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+            </li>
+
+        {% else %}
+
+            <li>
+                <a href="{{ currentScopeUrl }}" v-render-category="{{ category.id }}">{{ category.details[0].name }}</a>
+            </li>
+
+        {% endif %}
+    {% endfor %}
+
+{% endmacro %}
+
+
+{% macro get_sidemenu(breadcrumbs, categories, currentScopeUrl) %}
+
+    {% import _self as sidemenu %}
+
+    {% set urlNow = currentScopeUrl %}
+
+    <ul>
+        {% for category in categories %}
+
+            {% set urlNow = currentScopeUrl ~ "/" ~ category.details[0].nameUrl %}
+
+                <li class="nav-item{% for breadcrumb in breadcrumbs %}{% if category.id == breadcrumb.id %} active {% endif %}{% endfor %}" v-update-sidenav-selection="$store.getters.breadcrumbs" data-category-id="{{ category.id }}">
+                    {% if category.level == 1 %}
+                        <a data-plentyflow-element="text, link" href="{{ urlNow }}" class="nav-link">{{ category.details[0].name }}</a>
+                    {% else %}
+                        <a data-plentyflow-element="text, link, 2" href="{{ urlNow }}" class="nav-link">{{ category.details[0].name }}</a>
+                    {% endif %}
+                    {% if category.children is not empty %}
+                        {{ sidemenu.get_sidemenu(breadcrumbs, category.children, urlNow) }}
+                    {% endif %}
+                </li>
+
+        {% endfor %}
+    </ul>
+
+{% endmacro %}
