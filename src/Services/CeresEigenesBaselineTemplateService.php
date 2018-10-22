@@ -5,7 +5,7 @@ namespace CeresEigenesBaseline\Services;
 use Plenty\Modules\Item\DataLayer\Contracts\ItemDataLayerRepositoryContract;
 use Plenty\Plugin\Log\Loggable;
 /**
- * Class CeresBaselineTemplateService
+ * Class CeresEigenesBaselineTemplateService
  * @package CeresEigenesBaseline\Services
  */
 class CeresEigenesBaselineTemplateService
@@ -68,7 +68,7 @@ class CeresEigenesBaselineTemplateService
 			'resultCount' => $resultItems->count(),
 			'currentItems' => $items
 		);
-		//$this->getLogger("CeresEigenesBaselineTemplateService_getGlobals")->debug('CeresEigenesBaseline::CeresBaselineTemplateService.getGlobals', $templateData);
+		//$this->getLogger("CeresEigenesBaselineTemplateService_getGlobals")->debug('CeresEigenesBaseline::CeresEigenesBaselineTemplateService.getGlobals', $templateData);
 		return $templateData;
 	}
 }

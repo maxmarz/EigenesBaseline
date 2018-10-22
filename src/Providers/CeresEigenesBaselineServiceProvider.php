@@ -38,7 +38,7 @@ class CeresEigenesBaselineServiceProvider extends ServiceProvider
     public function boot (Twig $twig, Dispatcher $eventDispatcher,ConfigRepository $config, ItemDataLayerRepositoryContract $itemRepository ,ReferenceContainer $referenceContainer)
     {
 
-        // Register CeresBaselineServiceProvider
+        // Register CeresEigenesBaselineServiceProvider
         $twig->addExtension('Twig_Extension_StringLoader');
         $twig->addExtension(ShopActionServiceProvider::class);
 
@@ -113,7 +113,7 @@ class CeresEigenesBaselineServiceProvider extends ServiceProvider
         // Register reference types for logs.
         try
         {
-            $referenceContainer->add([ 'CeresBaselineId' => 'CeresBaselineId' ]);
+            $referenceContainer->add([ 'CeresEigenesBaselineId' => 'CeresEigenesBaselineId' ]);
         }
         catch(ReferenceTypeException $ex)
         {
