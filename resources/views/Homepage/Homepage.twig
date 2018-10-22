@@ -15,62 +15,59 @@
         #}
 
         <div class="homepage" data-plentyflow-pagename="Startseite" data-plentyflow-homepage="true">
-            <div class="swiper-container" id="home-slider" data-plentyflow-section="Slider">
-                <div class="swiper-wrapper">
-                    {% if config('CeresEigenesBaseline.default.slider') == "" %}
-                        <div class="swiper-slide">
-                            <div class="silder-img" style="background-image: url('{{ plugin_path('CeresEigenesBaseline') }}/images/homepage/baseline-slider-1.jpg');"></div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="silder-img" style="background-image: url('{{ plugin_path('CeresEigenesBaseline') }}/images/homepage/baseline-slider-2.jpg');"></div>
-                        </div>
-                    {% else %}
-                        {% for catID in sliderCategories %}
-
-                            {% set cat = services.category.get(catID,lang) %}
-                            {#
-                                <pre>{{ cat.details|json_encode }}</pre>
-                            #}
-                            {% if cat is not null %}
-                                {% set displayedSliders = displayedSliders | merge([catID]) %}
-                                <div class="swiper-slide" data-plentyflow-modul="Slide-{{ catID }}">
-                                    <div class="silder-img" style="background-image: url('documents/{{ cat.details.first.imagePath }}');">
-                                        <div class="container slider-content">
-                                            <div class="text-center-xs">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-11 offset-sm-4 col-md-7 offset-md-6  col-lg-6 offset-lg-6">
-                                                        {% if loop.first %}
-                                                            <h1 data-plentyflow-element="title">{{ cat.details.first.name }}</h1>
-                                                        {% else %}
-                                                            <h2 data-plentyflow-element="title" class="h1">{{ cat.details.first.name }}</h2>
-                                                        {% endif %}
-                                                        <p data-plentyflow-element="text">{{ cat.details.first.description }}</p>
-                                                        <a data-plentyflow-element="text, button" href="{{ cat.details.first.description2 }}" class="btn btn-primary">{{ cat.details.first.shortDescription }}</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-
-                        {% endfor %}
-                    {% endif %}
-
+            <div class="max-container swiper-container">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                </ol>
+                <span> </span>
+                <div class="carousel-inner" style="height: 700px;">
+                  <div class="carousel-item active" style="width: 100%; height: 100%; background-image: url(https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg); background-size: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color: lightgrey; opacity: 0.8;">
+                      <img src="https://cdn02.plentymarkets.com/qukdye15abpw/frontend/Bilder_testbilder/logo_header_techniworld.png" style="width: 50%; max-width: 400;"></img>
+                      <p>
+                        <a href="" class="btn-own btn-outline-dark" style="width: 40%; z-index: 11;">Mehr erfahren</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" style="width: 100%; height: 100%; background-image: url({{ plugin_path('CeresEigenesBaseline') }}/images/homepage/baseline-slider-1.jpg); background-size: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color: lightgrey; opacity: 0.8;">
+                      <img src="https://cdn02.plentymarkets.com/qukdye15abpw/frontend/Bilder_testbilder/logo_header_techniworld.png" style="width: 50%; max-width: 400;"></img>
+                      <p>
+                        <a href="" class="btn-own btn-outline-dark" style="width: 40%; z-index: 11;">Mehr erfahren</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" style="width: 100%; height: 100%; background-image: url({{ plugin_path('CeresEigenesBaseline') }}/images/homepage/baseline-slider-2.jpg); background-size: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color: lightgrey; opacity: 0.8;">
+                      <img src="https://cdn02.plentymarkets.com/qukdye15abpw/frontend/Bilder_testbilder/logo_header_techniworld.png" style="width: 50%; max-width: 400;"></img>
+                      <p>
+                        <a href="" class="btn-own btn-outline-dark" style="width: 40%; z-index: 11;">Mehr erfahren</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" style="width: 100%; height: 100%; background-image: url(https://cdn02.plentymarkets.com/qukdye15abpw/frontend/Bilder_testbilder/computer_index.jpg); background-size: cover;">
+                    <div class="carousel-caption d-none d-md-block" style="background-color: lightgrey; opacity: 0.8;">
+                      <img src="https://cdn02.plentymarkets.com/qukdye15abpw/frontend/Bilder_testbilder/logo_header_techniworld.png" style="width: 50%; max-width: 400;"></img>
+                      <p>
+                        <a href="" class="btn-own btn-outline-dark" style="width: 40%; z-index: 11;">Mehr erfahren</a>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Arrows -->
-                <a class="swiper-button-prev carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="swiper-button-prev" aria-hidden="false"></span>
                   <span class="sr-only">Previous</span>
                 </a>
-                <a class="swiper-button-next carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                   <span class="swiper-button-next" aria-hidden="false"></span>
                   <span class="sr-only">Next</span>
                 </a>
+              </div>
             </div>
-
 
 
             <div class="container-max" data-plentyflow-section="Highlights" data-plentyflow-section-element="space, block">
