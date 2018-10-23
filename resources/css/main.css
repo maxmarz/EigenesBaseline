@@ -16,8 +16,9 @@
 
 #suchfeldContainer{
   position: fixed;
-  margin: auto;
+  left: 50%;
   top: 150px;
+  margin-left: -20%;
   background-color: white;
   z-index: 9999;
 }
