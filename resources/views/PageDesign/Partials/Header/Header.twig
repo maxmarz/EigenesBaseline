@@ -103,7 +103,7 @@
 <a href="javascript: suchfeld()">test</a>
 
 <div id="suchfeld-container" style="width: 0px; height: 0px; overflow: hidden;">
-  <input id="suchfeld"></input>
+  <input id="suchfeld-input"></input>
   <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
 </div>
 
@@ -117,11 +117,13 @@
           suchfeld-container.width = "320px";
           suchfeld-container.height = "150px";
       } elseif(aktiv == true) {
+          aktiv = false;
           suchfsuchfeld-containereld.width = "0px";
           suchfeld-container.height = "0px";
       }
     }
+
     function suche(){
-      window.location.href = "/search/?query=" + document.getElementById("suchfeld").value.replace(" ", "%20");
+      window.location.href = "/search/?query=" + document.getElementById("suchfeld-input").value.replace(" ", "%20");
     }
 </script>
