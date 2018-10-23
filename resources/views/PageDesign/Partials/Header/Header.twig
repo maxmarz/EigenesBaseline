@@ -90,16 +90,16 @@
 
 <mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
 
-<a href="javascript: suchfeld()">
-  <div class="container-max page-header">
+<a href="javascript: suchfeld()"><button class="search-trigger btn"><i data-plentyflow-element="text, link" class="fa fa-search sm-up"></i></button></a>
+
+<div class="container-max page-header">
     <div id="searchBox" class="hidden-lg-up cmp collapse {% if services.template.isSearch() %} in {% endif %}">
 
       {# TODO: needs to be defined by plenty, start level is SECTION #}
       <item-search template="#vue-item-search"></item-search>
 
     </div>
-  </div>
-</a>
+</div>
 
 <div id="sucheSchatten" style="width: 100%; height: 100%; display: none; padding: 15px;">
   <div id="suchfeldContainer" style="width: 40%; overflow: hidden;">
