@@ -102,15 +102,15 @@
 
 <a href="javascript: suchfeld()">test</a>
 
-<section class="sucheSchatten">
-  <div id="suchfeldContainer" style="height: 150px; overflow: hidden;">
-    <div class="SuchBehaelter">
-      <h3>Suchen</h3>
-      <input id="suchfeld-input" class="input-unit" style="width: 50%; min-width: 270px;"></input>
-      <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
-    </div>
+<section class="sucheSchatten"></section>
+
+<div id="suchfeldContainer" style="width: 320px; height: 150px; overflow: hidden;">
+  <div class="SuchBehaelter">
+    <h3>Suchen</h3>
+    <input id="suchfeld-input" class="input-unit" style="width: 50%; min-width: 270px;"></input>
+    <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
   </div>
-</section>
+</div>
 
 <script language="javascript" type="text/javascript">
     var aktiv = false;
@@ -119,13 +119,13 @@
         switch (aktiv){
             case false:
                 aktiv = true;
-                document.getElementById("sucheSchatten").style.width = "100%";
-                document.getElementById("sucheSchatten").style.height = "100%";
+                document.getElementById("sucheSchatten").style.display = "inline";
+                document.getElementById("suchfeldContainer").style.display = "inline";
                 break;
             case true:
                 aktiv = false;
-                document.getElementById("sucheSchatten").style.width = "0px";
-                document.getElementById("sucheSchatten").style.height = "0px";
+                document.getElementById("sucheSchatten").style.display = "none";
+                document.getElementById("suchfeldContainer").style.display = "none";
                 break;
         }
     }

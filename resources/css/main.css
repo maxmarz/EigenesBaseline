@@ -19,10 +19,9 @@
   left: 50%;
   top: 150px;
   margin-left: -150px;
-  opacity: 0.95;
   background-color: white;
-  border: 1px solid black;
-  z-index: 10;
+  z-index: 12;
+  display: none;
 }
 
 .sucheSchatten{
@@ -31,7 +30,8 @@
   opacity: 0.5;
   top: 0px;
   left: 0px;
-  z-index: 10;
+  z-index: 11;
+  display: none;
 }
 
 .SuchBehaelter{
