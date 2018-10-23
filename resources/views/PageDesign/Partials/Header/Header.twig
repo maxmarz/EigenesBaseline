@@ -112,14 +112,17 @@
     var suchfeld-container = document.getElementById("suchfeld-container");
 
     function suchfeld(){
-      if (aktiv == false){
+      switch (aktiv){
+        case false:
           aktiv = true;
           suchfeld-container.width = "320px";
           suchfeld-container.height = "150px";
-      } elseif(aktiv == true) {
+          break;
+        case true:
           aktiv = false;
           suchfsuchfeld-containereld.width = "0px";
           suchfeld-container.height = "0px";
+          break;
       }
     }
 
