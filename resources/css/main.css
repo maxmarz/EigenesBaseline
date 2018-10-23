@@ -13,3 +13,12 @@
   background-image: url('https://plentyflow.plentymarkets-cloud02.com/documents/category/18/photo-1445384763658-0400939829cd.jpeg');
   background-position: 0px 30%;
 }
+
+#suchfeldContainer{
+  position: fixed;
+  left: 50%;
+  margin-left: -150px;
+  opacity: 0.95;
+  background-color: white;
+  border: 1px solid black;
+}
