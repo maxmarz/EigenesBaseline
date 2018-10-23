@@ -102,11 +102,16 @@
 
 <a href="javascript: suchfeld()">test</a>
 
-<div id="sucheSchatten" style="width: 100%; height: 100%; display: none;">
-  <div id="suchfeldContainer" style="width: 320px; height: 150px; overflow: hidden;">
-    <div class="SuchBehaelter">
-      <h3>Suchen</h3>
-      <input id="suchfeld-input" class="input-unit" style="width: 50%; min-width: 270px;"></input>
+<div id="sucheSchatten" style="width: 100%; height: 100%; display: none; padding: 15px;">
+  <div id="suchfeldContainer" style="width: 40%; height: 150px; overflow: hidden;">
+    <div class="SuchBehaelter" style="text-align: center;" >
+      <h1>Suchen</h1>
+      <button class="close" href="javascript: suchfeld()"></button>
+      <hr></hr>
+      <div class="input-unit">
+        <input id="suchfeld-input" style="width: 50%; min-width: 290px;"></input>
+        <label>Suchbegriff</label>
+      </div>
       <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
     </div>
   </div>

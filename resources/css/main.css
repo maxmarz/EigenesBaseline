@@ -20,15 +20,15 @@
   top: 150px;
   margin-left: -150px;
   background-color: white;
-  z-index: 999;
+  z-index: 1001;
 }
 
 #sucheSchatten{
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 998;
+  z-index: 1000;
 }
 
 .SuchBehaelter{
