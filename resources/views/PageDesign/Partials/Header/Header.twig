@@ -102,31 +102,31 @@
 
 <a href="javascript: suchfeldEinblenden()">test</a>
 
-<div id="suchfeld-container" style="width: 0px; height: 0px; overflow: hidden;">
+<div id="suchfeldContainer" style="width: 0px; height: 0px; overflow: hidden;">
   <input id="suchfeld-input"></input>
   <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
 </div>
 
-<script>
+<script language="javascript" type="text/javascript">
     var aktiv = false;
-    var suchfeld-container = document.getElementById("suchfeld-container");
+    var suchfeldContainer = document.getElementById("suchfeldContainer");
 
-    function suchfeldEinblenden(){
-        /*switch (aktiv){
+    function suchfeld(){
+        switch (aktiv){
             case false:
                 aktiv = true;
-                suchfeld-container.width = "320px";
-                suchfeld-container.height = "150px";
+                suchfeldContainer.style.width = "300px";
+                suchfeldContainer.style.height = "150px";
                 break;
             case true:
                 aktiv = false;
-                suchfsuchfeld-containereld.width = "0px";
-                suchfeld-container.height = "0px";
+                suchfeldContainer.style.width = "0px";
+                suchfeldContainer.style.height = "0px";
                 break;
-        }*/
+        }
     }
 
     function suche(){
-      window.location.href = "/search/?query=" + document.getElementById("suchfeld-input").value.replace(" ", "%20");
+        window.location.href = "/search/?query=" + document.getElementById("suchfeld-input").value.replace(" ", "%20");
     }
 </script>
