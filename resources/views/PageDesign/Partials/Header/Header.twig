@@ -100,7 +100,7 @@
     </div>
 </div>
 
-<a href="javascript: suchfeld()">test</a>
+<a href="javascript: suchfeldEinblenden()">test</a>
 
 <div id="suchfeld-container" style="width: 0px; height: 0px; overflow: hidden;">
   <input id="suchfeld-input"></input>
@@ -111,19 +111,19 @@
     var aktiv = false;
     var suchfeld-container = document.getElementById("suchfeld-container");
 
-    function suchfeld(){
-      switch (aktiv){
-        case false:
-          aktiv = true;
-          suchfeld-container.width = "320px";
-          suchfeld-container.height = "150px";
-          break;
-        case true:
-          aktiv = false;
-          suchfsuchfeld-containereld.width = "0px";
-          suchfeld-container.height = "0px";
-          break;
-      }
+    function suchfeldEinblenden(){
+        switch (aktiv){
+            case false:
+                aktiv = true;
+                suchfeld-container.width = "320px";
+                suchfeld-container.height = "150px";
+                break;
+            case true:
+                aktiv = false;
+                suchfsuchfeld-containereld.width = "0px";
+                suchfeld-container.height = "0px";
+                break;
+        }
     }
 
     function suche(){
