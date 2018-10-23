@@ -23,7 +23,7 @@
   z-index: 12;
 }
 
-.sucheSchatten{
+#sucheSchatten{
   background-color: black;
   position: fixed;
   opacity: 0.5;
