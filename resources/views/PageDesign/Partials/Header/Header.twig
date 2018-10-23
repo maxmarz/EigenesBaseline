@@ -90,16 +90,15 @@
 
 <mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
 
-<a href="javascript: suchfeld();">
-  <div class="container-max page-header">
+
+<div class="container-max page-header">
     <div id="searchBox" class="hidden-lg-up cmp collapse {% if services.template.isSearch() %} in {% endif %}">
 
       {# TODO: needs to be defined by plenty, start level is SECTION #}
-      <item-search template="#vue-item-search"></item-search>
+      <a href="javascript: suchfeld();"><item-search template="#vue-item-search"></item-search></a>
 
     </div>
-  </div>
-</a>
+</div>
 
 <div id="suchfeld-container" style="width: 0px; height: 0px; overflow: hidden;">
   <input id="suchfeld"></input>
