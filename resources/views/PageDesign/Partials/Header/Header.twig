@@ -100,7 +100,7 @@
     </div>
 </div>
 
-<a href="javascript: suchfeld();">test</a>
+<a href="javascript: suchfeld()">test</a>
 
 <div id="suchfeld-container" style="width: 0px; height: 0px; overflow: hidden;">
   <input id="suchfeld"></input>
@@ -115,9 +115,8 @@
           aktiv = true;
           var suchfeld = document.getElementById("suchfeld");
           suchfeld.width = "320px";
-          suchfeld.height = "150px;"
-      }
-      if (aktiv = true){
+          suchfeld.height = "150px";
+      } elseif(aktiv == true) {
           var suchfeld = document.getElementById("suchfeld");
           suchfeld.width = "0px";
           suchfeld.height = "0px";
