@@ -109,17 +109,16 @@
 
 <script>
     var aktiv = false;
+    var suchfeld-container = document.getElementById("suchfeld-container");
 
     function suchfeld(){
       if (aktiv == false){
           aktiv = true;
-          var suchfeld = document.getElementById("suchfeld-container");
-          suchfeld.width = "320px";
-          suchfeld.height = "150px";
+          suchfeld-container.width = "320px";
+          suchfeld-container.height = "150px";
       } elseif(aktiv == true) {
-          var suchfeld = document.getElementById("suchfeld-container");
-          suchfeld.width = "0px";
-          suchfeld.height = "0px";
+          suchfsuchfeld-containereld.width = "0px";
+          suchfeld-container.height = "0px";
       }
     }
     function suche(){
