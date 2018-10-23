@@ -95,10 +95,12 @@
     <div id="searchBox" class="hidden-lg-up cmp collapse {% if services.template.isSearch() %} in {% endif %}">
 
       {# TODO: needs to be defined by plenty, start level is SECTION #}
-      <a href="javascript: suchfeld();"><item-search template="#vue-item-search"></item-search></a>
+      <item-search template="#vue-item-search"></item-search>
 
     </div>
 </div>
+
+<a href="javascript: suchfeld();">test</a>
 
 <div id="suchfeld-container" style="width: 0px; height: 0px; overflow: hidden;">
   <input id="suchfeld"></input>
