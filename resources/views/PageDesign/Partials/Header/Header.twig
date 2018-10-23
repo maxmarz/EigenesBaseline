@@ -109,19 +109,18 @@
 
 <script language="javascript" type="text/javascript">
     var aktiv = false;
-    var suchfeldContainer = document.getElementById("suchfeldContainer");
 
     function suchfeld(){
         switch (aktiv){
             case false:
                 aktiv = true;
-                suchfeldContainer.style.width = "300px";
-                suchfeldContainer.style.height = "150px";
+                document.getElementById("suchfeldContainer").style.width = "300px";
+                document.getElementById("suchfeldContainer").style.height = "150px";
                 break;
             case true:
                 aktiv = false;
-                suchfeldContainer.style.width = "0px";
-                suchfeldContainer.style.height = "0px";
+                document.getElementById("suchfeldContainer").style.width = "0px";
+                document.getElementById("suchfeldContainer").style.height = "0px";
                 break;
         }
     }
