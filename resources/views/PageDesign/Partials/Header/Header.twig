@@ -124,8 +124,7 @@
       }
     }
     function suche(){
-      var suche = document.getElementById("suchfeld");
-      suche = suche.replace(" ", "%20");
+      var suche = document.getElementById("suchfeld").replace(" ", "%20");
       window.location.href = "/search/?query=" + suche;
     }
 </script>
