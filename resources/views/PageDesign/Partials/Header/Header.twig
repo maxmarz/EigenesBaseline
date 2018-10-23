@@ -99,3 +99,31 @@
 
     </div>
 </div>
+
+<div id="suchfeld-container" style="width = 0px; height = 0px;">
+  <input id="suchfeld"></input>
+  <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
+</div>
+
+<script>
+    var aktiv = false;
+
+    function suchfeld(){
+      if (aktiv == false){
+          aktiv = true;
+          var suchfeld = document.getElementById("suchfeld");
+          suchfeld.width = "320px";
+          suchfeld.height = "150px;"
+      }
+      if (aktiv = true){
+          var suchfeld = document.getElementById("suchfeld");
+          suchfeld.width = "0px";
+          suchfeld.height = "0px";
+      }
+    }
+    function suche(){
+      var suche = document.getElementById("suchfeld");
+      suche = suche.replace(" ", "%20");
+      window.location.href = "/search/?query=" + suche;
+    }
+</script>
