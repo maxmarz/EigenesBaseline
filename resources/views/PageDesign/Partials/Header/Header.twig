@@ -102,10 +102,15 @@
 
 <a href="javascript: suchfeld()">test</a>
 
-<div id="suchfeldContainer" style="width: 0px; height: 0px; overflow: hidden;">
-  <input id="suchfeld-input"></input>
-  <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
-</div>
+<section class="sucheSchatten">
+  <div id="suchfeldContainer" style="width: 0px; height: 0px; overflow: hidden;">
+    <div class="SuchBehaelter">
+      <h3>Suchen</h3>
+      <input id="suchfeld-input" class="input-unit"></input>
+      <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
+    </div>
+  </div>
+</section>
 
 <script language="javascript" type="text/javascript">
     var aktiv = false;
@@ -114,13 +119,13 @@
         switch (aktiv){
             case false:
                 aktiv = true;
-                document.getElementById("suchfeldContainer").style.width = "300px";
-                document.getElementById("suchfeldContainer").style.height = "150px";
+                document.getElementById("sucheSchatten").style.width = "100%";
+                document.getElementById("sucheSchatten").style.height = "100%";
                 break;
             case true:
                 aktiv = false;
-                document.getElementById("suchfeldContainer").style.width = "0px";
-                document.getElementById("suchfeldContainer").style.height = "0px";
+                document.getElementById("sucheSchatten").style.width = "0px";
+                document.getElementById("sucheSchatten").style.height = "0px";
                 break;
         }
     }
