@@ -108,7 +108,7 @@
       <a href="javascript: suchfeld()"><button class="close" style="position: absolute; top: 15px; right: 15px;"></button></a>
       <hr></hr>
       <div class="input-unit">
-        <input id="suchfeld-input" style="width: 100%; min-width: 290px;"></input>
+        <input id="suchfeld-input" style="width: 100%; min-width: 290px;" onkeydown="enterPressed()"></input>
         <label>Suchbegriff</label>
       </div>
       <a class="suchbutton btn btn-primary" href="javascript: suche()">Suchen</a>
@@ -135,5 +135,11 @@
 
     function suche(){
         window.location.href = "/search/?query=" + document.getElementById("suchfeld-input").value.replace(" ", "%20");
+    }
+
+    function enterPressed(){
+        if(event.key == 'Enter') {
+            suche();
+        }
     }
 </script>
