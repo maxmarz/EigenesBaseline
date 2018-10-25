@@ -28,7 +28,19 @@
   z-index: 9998;
 }
 
-@media screen and (max-width: 12000px) {
+@media screen and (min-width: 4096px) {
+  .carousel-item {
+    height: 2000px;
+  }
+}
+
+@media screen and (max-width: 4096px) {
+  .carousel-item {
+    height: 1000px;
+  }
+}
+
+@media screen and (max-width: 1900px) {
   .carousel-item {
     height: 700px;
   }
@@ -38,5 +50,11 @@
 @media screen and (max-width: 1200px) {
   .carousel-item {
     height: 600px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .carousel-item {
+    height: 400px;
   }
 }
