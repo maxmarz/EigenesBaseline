@@ -1,9 +1,9 @@
 {% extends getPartial('page-design') %}
-{% import "Ceres::Category.Macros.CategoryTree" as Tree %} <!-- Baseline -->
+{% import "Ceres::Category.Macros.CategoryTree" as Tree %} {#<!-- Baseline -->#}
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
 {# UPDATE: MOVED TO BASELINE #}
-{% set showHeaderNavBar        = config("Ceres.header.show_navbars") %} <!-- Baseline -->
+{% set showHeaderNavBar        = config("Ceres.header.show_navbars") %} {#<!-- Baseline -->#}
 
 {% block PageBody %}
 
@@ -44,7 +44,7 @@
         {% endif %}
 
         <!-- breadcrumb -->
-        {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %} <!-- Baseline -->
+        {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %} {#<!-- Baseline -->#}
         <div class="row container-max">
 
             {% if ceresConfig.header.showNavBars == "side" or ceresConfig.header.showNavBars == "both" %}
