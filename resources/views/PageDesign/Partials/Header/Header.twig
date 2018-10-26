@@ -117,6 +117,13 @@
   </div>
 </div>
 
+{% import "Ceres::Category.Macros.CategoryTree" as Tree %}
+
+{% set lang = services.sessionStorage.getLang() %}
+{% set categoryBreadcrumbs = services.category.getHierarchy() %}
+
+{{ Tree.get_sidemenu(categoryBreadcrumbs, categories, "") }}
+
 <script language="javascript" type="text/javascript">
     var aktiv = false;
 
