@@ -5,6 +5,7 @@
 {% set displayedSliders = [] %}
 {% set sliderCategories = config('CeresEigenesBaseline.default.slider') | find("[0-9]+") %}
 {% set latestItemsList = services.item.getLatestItems(12) %}
+{% set companyLogoNav   = config("CeresEigenesBaseline.header.company_logo") %}
 
 {% block PageBody %}
 
