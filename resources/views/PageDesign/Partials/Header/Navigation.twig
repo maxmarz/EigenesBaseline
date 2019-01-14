@@ -10,105 +10,33 @@
         <!--       LOGO       -->
         <!--       START      -->
         <div class="brand-wrapper text-xs-center" data-plentyflow-modul="Logo">
-            <a class="pull-lg-left" href="/">
+            <a class="pull-lg-left" href="{{ homepageURL }}">
                 {% if (companyLogoNav is empty)  %}
-                    <img src="{{ plugin_path('CeresEigenesBaseline') }}/images/baseline-logo.png" class="img-fluid"/>
+                    <img src="{{ plugin_path('CeresEigenesBaseline') }}/images/EigenesBaseline-logo.png" class="img-fluid"/>
                 {% else %}
-                    <img data-plentyflow-element="image, space" src="{{ companyLogoNav }}" class="img-fluid" style="max-height:60px;"/>
+                    <img data-plentyflow-element="image, space" src="{{ companyLogoNav }}" class="img-fluid"/>
                 {% endif %}
-                <span class="badge badge-secondary">BETA</span>
+            </a>
+        </div>
+
+        <div class="control-languages--mobile text-lg-right seperation-right">
+            <a data-toggle="collapse" href="#countrySettings" aria-expanded="false"
+               aria-controls="countrySettings"
+               data-parent="#controlsList">
+                <i class="flag-icon flag-icon-{{ lang }}"></i>
             </a>
         </div>
         <!--       LOGO       -->
         <!--        END       -->
 
-
-        <!--   DESKTOP MENU   -->
-        <!--       START      -->
-        <ul class="nav navbar-nav main-nav pull-lg-left hidden-md-down"
-            data-dropdown-in="fadeIn"
-            data-dropdown-out="fadeOut"
-            data-plentyflow-modul="Menu">
-
-            {# TODO: Macro entwickeln für einen rekursiven Aufruf #}
-
-            {% for category in services.category.getNavigationTree("all", lang, megamenuMaxLevel) %}
-
-                {% if category.children is empty %}
-                    <li class="nav-item">
-                        <a data-plentyflow-element="text, link"
-                           class="nav-link"
-                           href="{{ services.category.getURL( category, lang ) }}">
-                            {{ category.details.first.name }}
-                        </a>
-                    </li>
-                {% else %}
-                    <li class="nav-item dropdown {% if category.details.first.categoryId in megamenu  %}yamm-fw{% endif %}">
-
-                        <a class="dropdown-toggle nav-link"
-                           id="{{ category.details.first.name }}_Menu"
-                           data-target="#"
-                           href="{{ services.category.getURL( category, lang ) }}"
-                           aria-haspopup="true"
-                           aria-expanded="false"
-                           data-plentyflow-element="text,link">
-                            {{ category.details.first.name }}
-                        </a>
-
-                        <ul data-plentyflow-element="block" class="dropdown-menu" aria-labelledby="{{ category.details.first.name }}_Menu">
-
-                            {% if category.details.first.categoryId in megamenu  %}
-                            <div class="yamm-content container">
-                                <div class="text-lg-center"><a href="{{ services.category.getURL( category, lang ) }}" class="h2">{{ category.details.first.name }}</a></div>
-                                <div class="row">
-                                    <div class="col-md-{% if category.details.first.image2Path != "" %}9{% else %}12{% endif %}">
-                                        <ul class="row list-unstyled mt-sm-10">
-                            {% endif %}
-                                            {% for subcat in category.children %}
-                                                <li  class="{% if subcat.children is not empty %}dropdown{% endif %} {% if category.details.first.categoryId in megamenu %} col-md-4  {% else %} dropdown {%  endif  %}">
-
-                                                    <a class="dropdown-item special-case {% if category.details.first.categoryId in megamenu  %}h4{% else %} no-mega{% endif %} block"
-                                                       href="{{ services.category.getURL( subcat, lang ) }}"
-                                                       data-plentyflow-element="title, link">
-                                                        {{ subcat.details.first.name }}
-                                                    </a>
-
-                                                    {% if subcat.children is not empty %}
-                                                        <ul class="dropdown-menu sub-menu list-unstyled">
-                                                            <li>
-                                                                {% for subsubcat in subcat.children %}
-                                                                    <a data-plentyflow-element="text, link, 2"
-                                                                       class="dropdown-item special-case block"
-                                                                       href="{{ services.category.getURL( subsubcat, lang ) }}">
-                                                                        {{ subsubcat.details.first.name }}
-                                                                    </a>
-                                                                {% endfor %}
-                                                            </li>
-                                                        </ul>
-                                                    {% endif %}
-                                                </li>
-                                            {% endfor %}
-                            {% if category.details.first.categoryId in megamenu  %}
-                                        </ul>
-                                    </div>
-                                    {% if category.details.first.image2Path != "" %}
-                                    <div class="col-md-3">
-                                        <img class="img-fluid cat-img-nav" src="/documents/{{ category.details.first.image2Path }}" alt="{{ category.details.first.name }}" />
-                                    </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            {% endif %}
-                        </ul>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+        {# if showHeaderNavBar == "top" or showHeaderNavBar == "both" #}{# or not services.template.isCategory() #}
+            {% include "CeresEigenesBaseline::PageDesign.Partials.Header.NavigationList" %}
+        {# endif #}
 
         <div class="search-desktop hidden-md-down pull-lg-right" data-plentyflow-modul="Search-Icon">
-            <a href="javascript: suchfeld()"><button class="search-trigger btn">
+            <button class="search-trigger btn">
                 <i data-plentyflow-element="text, link" class="fa fa-search sm-up"></i>
-            </button></a>
+            </button>
         </div>
         <!--   DESKTOP MENU   -->
         <!--        END       -->
