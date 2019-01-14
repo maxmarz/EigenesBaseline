@@ -35,6 +35,14 @@
           "options": {
             "defaultValue": ""
           }
+        },
+        "default.contentPagesInMenu": {
+          "type": "checkBox",
+          "required": false,
+          "label": "Content Seiten im Menü anzeigen",
+          "options": {
+            "defaultValue": "false"
+          }
         }
       }
     },
@@ -129,6 +137,14 @@
             "defaultValue": "Topseller"
           }
         },
+        "default.topsellerHeadlineEN": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.defaultTopsellerHeadlineLabelEN",
+          "options": {
+            "defaultValue": "Topseller"
+          }
+        },
         "default.highlight5": {
           "type": "inputText",
           "required": false,
@@ -173,6 +189,14 @@
           "type": "inputText",
           "required": false,
           "label": "Config.defaultLatestitemHeadlineLabel",
+          "options": {
+            "defaultValue": "Neuheiten"
+          }
+        },
+        "default.latestitemHeadlineEN": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.defaultLatestitemHeadlineLabelEN",
           "options": {
             "defaultValue": "Neuheiten"
           }
@@ -236,6 +260,30 @@
           "type": "inputText",
           "required": false,
           "label": "Config.headerShopHighlight3Label",
+          "options": {
+            "defaultValue": "Alles auf Lager"
+          }
+        },
+        "header.shop_highlight_1EN": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.headerShopHighlight1LabelEN",
+          "options": {
+            "defaultValue": "Kostenloser Versand"
+          }
+        },
+        "header.shop_highlight_2EN": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.headerShopHighlight2LabelEN",
+          "options": {
+            "defaultValue": "Große Markenvielfalt"
+          }
+        },
+        "header.shop_highlight_3EN": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.headerShopHighlight3LabelEN",
           "options": {
             "defaultValue": "Alles auf Lager"
           }
@@ -366,6 +414,19 @@
             "defaultValue": "Zahlung und Versand"
           }
         },
+        "footer.payment_title_en": {
+          "type": "inputText",
+          "required": false,
+          "label": "Bereich: Zahlung und Versand - Überschrift EN",
+          "options": {
+            "defaultValue": "Payment and Shipping"
+          }
+        },
+        "footer.newsletterFolder": {
+          "type": "inputText",
+          "required": false,
+          "label": "Config.newsletterFolder"
+        },
         "footer.newsletter": {
           "type": "checkBox",
           "required": false,
@@ -390,6 +451,14 @@
             "defaultValue": ""
           }
         },
+        "footer.col_1_title_en": {
+          "type": "inputText",
+          "required": false,
+          "label": "Footer Spalte Titel EN #1",
+          "options": {
+            "defaultValue": ""
+          }
+        },
         "footer.col_2_categories": {
           "type": "inputText",
           "required": false,
@@ -406,6 +475,14 @@
             "defaultValue": ""
           }
         },
+        "footer.col_2_title_en": {
+          "type": "inputText",
+          "required": false,
+          "label": "Footer Spalte Titel EN #2",
+          "options": {
+            "defaultValue": ""
+          }
+        },
         "footer.col_3_categories": {
           "type": "inputText",
           "required": false,
@@ -418,6 +495,14 @@
           "type": "inputText",
           "required": false,
           "label": "Footer Spalte Titel #3",
+          "options": {
+            "defaultValue": ""
+          }
+        },
+        "footer.col_3_title_en": {
+          "type": "inputText",
+          "required": false,
+          "label": "Footer Spalte Titel EN #3",
           "options": {
             "defaultValue": ""
           }
