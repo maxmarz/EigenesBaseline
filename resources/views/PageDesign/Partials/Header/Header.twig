@@ -1,4 +1,4 @@
-<!--{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
 {{ component( "CeresEigenesBaseline::Customer.Components.UserLoginHandler" ) }}
 {{ component( "Ceres::PageDesign.Components.MobileNavigation" ) }}
@@ -93,7 +93,7 @@
 
 
 <div class="container-max page-header">
-    <div id="searchBox" class="hidden-lg-up cmp collapse {% if services.template.isSearch() %} in{% endif %}">
+    <div id="searchBox" class="hidden-lg-up cmp collapse {% if services.template.isSearch() %} in {% endif %}">
 
       {# TODO: needs to be defined by plenty, start level is SECTION #}
       <item-search template="#vue-item-search"></item-search>
@@ -143,4 +143,3 @@
         }
     }
 </script>
--->
