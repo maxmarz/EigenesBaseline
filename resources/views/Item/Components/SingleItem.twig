@@ -239,10 +239,8 @@
                                         {% endif %}
 
                                         <tr>
-                                          {% if GetBarcode("EAN_13 1") %}
                                             <td>EAN</td>
-                                            <td itemprop="gtin13">{% GetBarcode("EAN_13 1") %}</td>
-                                          {% endif %}
+                                            <td>${ currentVariation.variation.ean13 }</td>
 							                          </tr>
 
                                         {% if ('item.variation_dimensions' in itemData or 'all' in itemData) %}
