@@ -2,6 +2,7 @@
 {% set enabledRoutes = config("IO.routing.enabled_routes") | split(', ') %}
 {% set shippingCat = config("Ceres.global.shippingCostsCategoryId") %}
 {% set categoryBreadcrumbs = services.category.getHierarchy() %}
+{% $_GTIN13 = 'EAN_13 1'; %}
 
 <script type="x/template" id="vue-single-item">
     <div>
@@ -238,10 +239,10 @@
                                             </tr>
                                         {% endif %}
 
-                                        <tr>
-                                          <td>GTIN 13</td>
-                                          <td>${ currentVariation.variation.ean_13 }</td>
-                                        </tr>
+                                        <tr id="barcodeLabel_$_GTIN13"{% if $AttributeExist || !GetBarcode($_GTIN13) %} style="display:none;"{% endif %}>
+								                            <td>EAN</td>
+								                            <td itemprop="gtin13" data-plenty="barcode_$_GTIN13">{% GetBarcode($_GTIN13) %}</td>								
+							                          </tr>
 
                                         {% if ('item.variation_dimensions' in itemData or 'all' in itemData) %}
                                             <tr>
