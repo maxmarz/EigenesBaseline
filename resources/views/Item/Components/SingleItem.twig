@@ -238,6 +238,11 @@
                                             </tr>
                                         {% endif %}
 
+                                        <tr>
+                                          <td>GTIN 13</td>
+                                          <td>${ currentVariation.variation.gtin13 }</td>
+                                        </tr>
+
                                         {% if ('item.variation_dimensions' in itemData or 'all' in itemData) %}
                                             <tr>
                                                 <td>{{ trans("Ceres::Template.singleItemDimensions") }}</td>
